@@ -2,6 +2,7 @@ package github.vortexren.skyblock;
 
 import github.vortexren.skyblock.commands.KickCommand;
 import github.vortexren.skyblock.commands.ServerCommand;
+import github.vortexren.skyblock.sql.SQLConnection;
 import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
@@ -14,6 +15,9 @@ import java.util.UUID;
 public final class SkyblockProxy extends Plugin {
     @Getter
     private static SkyblockProxy plugin;
+
+    @Getter
+    public SQLConnection SQLConnection;
 
     @Override
     public void onEnable() {
