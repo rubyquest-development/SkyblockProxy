@@ -1,0 +1,4 @@
+name: Skyblock
+version: '1.0'
+main: github.vortexren.skyblock.SkyblockProxy
+description: Backend Proxy plugin for RubyBlock. Contains commands and various other libraries included in the main jar.

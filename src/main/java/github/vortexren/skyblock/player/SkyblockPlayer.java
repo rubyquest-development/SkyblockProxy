@@ -4,12 +4,13 @@ import github.vortexren.skyblock.SkyblockProxy;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
 public class SkyblockPlayer {
     public static File PLAYER_FOLDER = new File(SkyblockProxy.getPlugin().getDataFolder(), "./players");
-    public static Map<UUID, SkyblockPlayer> PLAYER_CACHE;
+    public static Map<UUID, SkyblockPlayer> PLAYER_CACHE = new HashMap<>();
 
     private ProxiedPlayer player;
 

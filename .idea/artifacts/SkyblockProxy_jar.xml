@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SkyblockProxy:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SkyblockProxy_jar</output-path>
+    <root id="archive" name="SkyblockProxy.jar">
+      <element id="module-output" name="SkyblockProxy" />
+    </root>
+  </artifact>
+</component>

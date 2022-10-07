@@ -16,10 +16,6 @@ public class KickCommand extends Command{
 
     @Override
     public void execute(CommandSender sender, String[] args) {
-        if (!(sender instanceof ProxiedPlayer)) {
-            ChatUtils.sendMessage("&cThis command can only be used by players, sorry!", sender);
-            return;
-        }
 
         if (args.length < 2) {
             ChatUtils.sendMessage("&cYou must supply the correct arguments to use this command!", sender);
@@ -29,7 +25,15 @@ public class KickCommand extends Command{
         ProxiedPlayer plrToKick = SkyblockProxy.getPlayer(args[0]);
         SkyblockPlayer sbPlayer = SkyblockPlayer.getPlayer(plrToKick);
 
-        sbPlayer.kick(args[1]);
+        StringBuilder builder = new StringBuilder();
+
+        int startArg = 1;
+        int endArg = args.length;
+        for(int i = startArg; i< endArg; i++){
+            builder.append(args[i] + (args.length > (i+1) ? " " : ""));
+        }
+
+        sbPlayer.kick(builder.toString());
 
     }
 }

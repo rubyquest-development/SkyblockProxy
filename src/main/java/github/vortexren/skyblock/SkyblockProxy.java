@@ -1,5 +1,6 @@
 package github.vortexren.skyblock;
 
+import github.vortexren.skyblock.commands.KickCommand;
 import github.vortexren.skyblock.commands.ServerCommand;
 import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;
@@ -16,7 +17,7 @@ public final class SkyblockProxy extends Plugin {
 
     @Override
     public void onEnable() {
-        this.plugin = plugin;
+        this.plugin = this;
 
         registerClasses();
     }
@@ -39,6 +40,7 @@ public final class SkyblockProxy extends Plugin {
     //register all loadable classes
     private void registerClasses() {
         registerCommand(new ServerCommand());
+        registerCommand(new KickCommand());
     }
 
     //method to make registering commands faster
