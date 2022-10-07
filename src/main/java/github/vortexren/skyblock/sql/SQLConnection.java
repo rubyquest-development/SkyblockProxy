@@ -10,9 +10,9 @@ public class SQLConnection {
     private final String host = "na02-db.cus.mc-panel.net";
     private final String port = "3306";
 
-    private final String database_name = "db_597453";
-    private final String database_username = "db_597453";
-    private final String database_password = "2fe913f563";
+    private final String database_name = "no";
+    private final String database_username = "no";
+    private final String database_password = "no";
 
     @Getter
     private Connection connection;
