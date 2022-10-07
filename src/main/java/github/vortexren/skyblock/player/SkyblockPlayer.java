@@ -59,13 +59,13 @@ public class SkyblockPlayer {
 
     //SQL
 
-    public void createPlayer(UUID uuid) {
+    public void createPlayer() {
         try {
-            if (!playerSQLExists(uuid)) {
+            if (!playerSQLExists(player.getUniqueId())) {
                 PreparedStatement statement2;
                 statement2 = SkyblockProxy.getPlugin().getSQLConnection().getConnection().prepareStatement("INSERT IGNORE INTO playerTable(NAME,UUID) VALUES (?,?)");
                 statement2.setString(1, player.getName());
-                statement2.setString(2, uuid.toString());
+                statement2.setString(2, player.getUniqueId().toString());
 
                 statement2.executeUpdate();
             }
@@ -74,7 +74,7 @@ public class SkyblockPlayer {
         }
     }
 
-    public boolean playerSQLExists(UUID uuid) {
+    private boolean playerSQLExists(UUID uuid) {
         try {
             PreparedStatement statement;
             statement = SkyblockProxy.getPlugin().getSQLConnection().getConnection().prepareStatement("SELECT * from playerTable WHERE UUID=?");

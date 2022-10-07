@@ -1,7 +1,10 @@
 package github.vortexren.skyblock;
 
+import github.vortexren.skyblock.commands.BanCommand;
 import github.vortexren.skyblock.commands.KickCommand;
 import github.vortexren.skyblock.commands.ServerCommand;
+import github.vortexren.skyblock.listener.PlayerListener;
+import github.vortexren.skyblock.player.SkyblockPlayer;
 import github.vortexren.skyblock.sql.SQLConnection;
 import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;
@@ -10,6 +13,7 @@ import net.md_5.bungee.api.plugin.Command;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
 
+import java.sql.SQLException;
 import java.util.UUID;
 
 public final class SkyblockProxy extends Plugin {
@@ -22,6 +26,16 @@ public final class SkyblockProxy extends Plugin {
     @Override
     public void onEnable() {
         this.plugin = this;
+        this.SQLConnection = new SQLConnection();
+
+        try {
+            this.SQLConnection.connect();
+        } catch (ClassNotFoundException | SQLException exception) {
+            exception.printStackTrace();
+        }
+
+        SkyblockPlayer.table.createTable();
+
 
         registerClasses();
     }
@@ -45,6 +59,9 @@ public final class SkyblockProxy extends Plugin {
     private void registerClasses() {
         registerCommand(new ServerCommand());
         registerCommand(new KickCommand());
+        registerCommand(new BanCommand());
+
+        registerListener(new PlayerListener());
     }
 
     //method to make registering commands faster
