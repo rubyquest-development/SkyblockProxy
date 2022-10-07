@@ -1,5 +1,6 @@
 package github.vortexren.skyblock.utilities;
 
+import github.vortexren.skyblock.SkyblockProxy;
 import net.md_5.bungee.api.ProxyServer;
 import net.md_5.bungee.api.config.ServerInfo;
 

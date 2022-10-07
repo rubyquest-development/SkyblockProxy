@@ -3,9 +3,12 @@ package github.vortexren.skyblock;
 import github.vortexren.skyblock.commands.ServerCommand;
 import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
+
+import java.util.UUID;
 
 public final class SkyblockProxy extends Plugin {
     @Getter
@@ -23,6 +26,15 @@ public final class SkyblockProxy extends Plugin {
         plugin.getProxy().getConsole().sendMessage(ChatColor.translateAlternateColorCodes('&', s));
     }
 
+    //method for pure convenience
+    public static ProxiedPlayer getPlayer(UUID uuid) {
+        return plugin.getProxy().getPlayer(uuid);
+    }
+
+    //method for pure convenience
+    public static ProxiedPlayer getPlayer(String name) {
+        return plugin.getProxy().getPlayer(name);
+    }
 
     //register all loadable classes
     private void registerClasses() {
